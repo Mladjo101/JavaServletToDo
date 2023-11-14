@@ -1,46 +1,82 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome to Our Food Ordering System</title>
+    <title>Dobrodošli u našu to-do aplikaciju</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
-        .navbar-custom {
-            background-color: cornflowerblue; /* You can change this color to suit your branding */
+        body{
+            color: black;
         }
-        .navbar-custom .navbar-brand,
-        .navbar-custom .navbar-nav .nav-link {
+        h1{
+            font-family: sans-serif;
+            font-size: 4rem!important;
+            font-weight: 600!important;
+        }
+        p{
+            font-size: 20px!important;
+        }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 500px;
+        padding-bottom: 500px;
+    }
+    .background{
+        background-repeat: no-repeat;
+        background-size: cover;
+        background: url("blank-clipboard-with-grocery-cart.jpg");
+        height: 100%;
+        width: 100%;
+    }
+    .dugme1{
+        width: auto;
+        padding: 10px 20px;
+        border-radius: 50px;
+        background-color: darkblue;
+        color: white;
+        font-size: 1rem;
+        border: 1px darkblue solid;
+        font-weight: bold;
+    }
+    .dugme1:hover{
+        background-color: transparent;
+        color: Black;
+    }
+    .dugme2{
+        font-weight: bold;
+        width: auto;
+        padding: 10px 20px;
+        border-radius: 50px;
+        border: 1px darkblue solid;
+        background-color: transparent;
+        color: black;
+        font-size: 1rem;
+    }
+        .dugme2:hover{
+           background-color: darkblue;
             color: white;
         }
-        body {
-            padding-top: 20px;
+        .dugme-wrapper{
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-custom">
+<div class="background">
     <div class="container">
-        <a class="navbar-brand" href="#">Food Ordering System</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="pages/login.jsp">Admin Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="menu">View Menu</a>
-                </li>
-                <!-- Add more navigation links as necessary -->
-            </ul>
+    <h1>Dobrodosli u nasu to-do aplikaciju</h1>
+    <p>Nadamo se da cete uzivati.Da bi sacuvali svoju listu morate se ulogavati.</p>
+        <div class="dugme-wrapper">
+        <a href="pages/login.jsp"><button class="dugme1">Prijava</button></a>
+        <a href="/registracija.jsp"><button class="dugme2">Registracija</button></a>
         </div>
     </div>
-</nav>
-
-<div class="container text-center">
-    <h1>Welcome to Our Food Ordering System</h1>
-    <p class="lead">Enjoy our delicious menu and quick service</p>
 </div>
 
 <!-- Optional JavaScript -->
