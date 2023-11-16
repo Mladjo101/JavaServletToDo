@@ -6,30 +6,40 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import java.io.IOException;
 
-import static java.lang.System.out;
-
 @WebServlet(name = "LoginServlet", value = "/login")
 public class LoginServlet extends HttpServlet {
-    UserDAO userDAO;
+    private UserDAO userDAO;
 
     public LoginServlet() {
         this.userDAO = new UserDAO();
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        User admin = userDAO.getAdmin();
-        // Authenticate user
-        boolean isAuthenticated = username.equals(admin.getUsername()) && password.equals(admin.getPassword());
+        User user = userDAO.getUserByUsername(username);
 
-        if (isAuthenticated) {
-            // Redirect to a successful login page or dashboard
-            response.sendRedirect("admin");
+        if (user != null && password.equals(user.getPassword())) {
+            // Authentication successful
+
+            // Save user ID in session
+            HttpSession session = request.getSession();
+            session.setAttribute("userId", user.getId());
+
+            // Redirect to different pages based on the role
+            if ("admin".equals(username)) {
+                response.sendRedirect("admin"); // Redirect to admin page
+            } else {
+                response.sendRedirect("user"); // Redirect to user page
+            }
+
         } else {
-            // Redirect back to the login page with an error message
-            out.println("problem");
+            // Authentication failed
+            // Redirect back to the login page with an error message or handle it accordingly
+            response.sendRedirect("login.jsp?error=true");
         }
     }
 }
+

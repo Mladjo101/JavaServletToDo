@@ -10,19 +10,22 @@ import java.sql.SQLException;
 
 public class UserDAO {
 
-    public User getAdmin() {
-        User admin = new User();
+    public User getUserByUsername(String username) {
+        User user = new User();
         try (Connection connection = DatabaseConfig.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE username = 'admin'");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE username = ?");
+            statement.setString(1, username);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                admin.setId(resultSet.getInt("id"));
-                admin.setUsername(resultSet.getString("username"));
-                admin.setPassword(resultSet.getString("password"));
+                user.setId(resultSet.getInt("id"));
+                user.setUsername(resultSet.getString("username"));
+                user.setPassword(resultSet.getString("password"));
+            } else {
+                user = null; // User not found
             }
         } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving admin", e);
+            throw new RuntimeException("Error retrieving user", e);
         }
-        return admin;
+        return user;
     }
 }
