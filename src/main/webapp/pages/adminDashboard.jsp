@@ -132,7 +132,13 @@
                     <td><%= user.getId() %></td>
                     <td><%= user.getUsername() %></td>
                     <td><%=user.getEmail()%></td>
-                    <!-- Add more columns as needed -->
+                    <td>
+                        <form action="${pageContext.request.contextPath}/deleteUser" method="post">
+                            <input type="hidden" name="userId" value="<%= user.getId() %>">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+
                 </tr>
                 <% } %>
                 </tbody>

@@ -72,6 +72,9 @@
 
     <h2>ToDo List</h2>
     <div class="logout-btn">
+        <button class="logout-btn" onclick="redirectToDoneTasks()">Done tasks</button>
+    </div>
+    <div class="logout-btn">
         <button class="logout-btn" onclick="redirectToLogout()">Log out</button>
     </div>
 </header>
@@ -114,6 +117,10 @@
     function redirectToLogout() {
         // Perform any additional cleanup or actions if needed
         window.location.href = "${pageContext.request.contextPath}/pages/login.jsp";
+    }
+    function redirectToDoneTasks() {
+        // Perform any additional cleanup or actions if needed
+        window.location.href = "${pageContext.request.contextPath}/pages/doneTasks.jsp";
     }
 </script>
 </body>

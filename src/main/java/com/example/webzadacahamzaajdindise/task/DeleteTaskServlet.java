@@ -22,7 +22,7 @@ public class DeleteTaskServlet extends HttpServlet {
         int taskId = Integer.parseInt(request.getParameter("taskId"));
 
         // Call TaskDAO to delete the task
-        taskDAO.deleteTask(taskId);
+        taskDAO.setTaskToDone(taskId);
 
         // Redirect back to the user dashboard or handle the response as needed
         response.sendRedirect(request.getContextPath() + "/user");

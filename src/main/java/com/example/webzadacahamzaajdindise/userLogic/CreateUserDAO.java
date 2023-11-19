@@ -67,6 +67,19 @@ public class CreateUserDAO {
         }
         return newUser;
     }
+    public void deleteUserById(int userId) {
+        try (Connection connection = DatabaseConfig.getConnection()) {
+
+            // Delete the user
+            String deleteQuery = "DELETE FROM users WHERE id = ?";
+            try (PreparedStatement deleteStatement = connection.prepareStatement(deleteQuery)) {
+                deleteStatement.setInt(1, userId);
+                deleteStatement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting user with ID: " + userId, e);
+        }
+    }
 
     private boolean userExists(Connection connection, String username, String email) throws SQLException {
         PreparedStatement checkStatement = connection.prepareStatement("SELECT * FROM users WHERE username = ? OR email = ?");
