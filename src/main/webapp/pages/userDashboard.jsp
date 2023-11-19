@@ -33,16 +33,26 @@
         .card {
             width: 18rem;
             margin-bottom: 20px;
-            background-color: darkblue;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            border-radius: 0.5rem;
+            background: #606c88;
+            background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);
+            background: linear-gradient(to right top, #3f4c6b, #606c88);
+            padding: 1rem;
+
+            box-shadow: 0px 87px 78px -39px rgba(0,0,0,0.4);
             color: white;
             font-size: 20px;
         }
 
         .checkmark {
             color: green;
+            font-size: 20px;
         }
         header {
-            background-color: darkblue;
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,4,64,1) 23%, rgba(0,138,255,1) 100%);
             color: white;
             padding: 15px;
             text-align: center;
@@ -54,11 +64,26 @@
             color: #fff;
             background-color: #dc3545;
             border: none;
-            padding: 5px;
+            padding: 5px 10px;
             margin: 0;
             cursor: pointer;
             border-radius: 10px;
+
         }
+        .done-btn{
+
+                color: #fff;
+                background-color: #0f700d;
+                border: none;
+                padding: 5px 10px;
+
+                cursor: pointer;
+                border-radius: 10px;
+                margin-right: 10px;
+
+
+        }
+
         .container{
             display:flex;
         }
@@ -71,10 +96,10 @@
 <header>
 
     <h2>ToDo List</h2>
-    <div class="logout-btn">
-        <button class="logout-btn" onclick="redirectToDoneTasks()">Done tasks</button>
-    </div>
-    <div class="logout-btn">
+    <div class="button-group">
+        <button class="done-btn" onclick="redirectToDoneTasks()">Done tasks</button>
+
+
         <button class="logout-btn" onclick="redirectToLogout()">Log out</button>
     </div>
 </header>

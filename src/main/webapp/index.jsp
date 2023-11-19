@@ -76,7 +76,7 @@
     <p>Nadamo se da cete uzivati. Da bi sacuvali svoju listu morate se ulogavati.</p>
         <div class="dugme-wrapper">
         <a href="pages/login.jsp"><button class="dugme1">Prijava</button></a>
-        <a href="/registracija.jsp"><button class="dugme2">Registracija</button></a>
+
         </div>
     </div>
 </div>

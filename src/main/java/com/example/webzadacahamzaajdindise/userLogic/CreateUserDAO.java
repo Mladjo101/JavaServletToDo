@@ -69,9 +69,22 @@ public class CreateUserDAO {
     }
     public void deleteUserById(int userId) {
         try (Connection connection = DatabaseConfig.getConnection()) {
-
+            deleteTaskById(userId);
             // Delete the user
             String deleteQuery = "DELETE FROM users WHERE id = ?";
+            try (PreparedStatement deleteStatement = connection.prepareStatement(deleteQuery)) {
+                deleteStatement.setInt(1, userId);
+                deleteStatement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting user with ID: " + userId, e);
+        }
+    }
+    public void deleteTaskById(int userId) {
+        try (Connection connection = DatabaseConfig.getConnection()) {
+
+            // Delete the user
+            String deleteQuery = "DELETE FROM tasks WHERE user_id = ?";
             try (PreparedStatement deleteStatement = connection.prepareStatement(deleteQuery)) {
                 deleteStatement.setInt(1, userId);
                 deleteStatement.executeUpdate();

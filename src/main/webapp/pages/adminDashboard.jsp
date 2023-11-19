@@ -24,7 +24,7 @@
         }
 
         .admin-header {
-            background-color: darkblue;
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,4,64,1) 23%, rgba(0,138,255,1) 100%);
             color: white;
             padding: 15px;
             text-align: center;
@@ -88,6 +88,9 @@
         }
         .create-btn{
             background-color: darkblue !important;
+        }
+        form .btn{
+            margin-top: 0 !important;
         }
 
 
