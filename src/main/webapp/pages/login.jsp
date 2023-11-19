@@ -69,7 +69,7 @@
         background-repeat: no-repeat;
         background-size: cover;
         background: url("../blank-clipboard-with-grocery-cart.jpg");
-        height: 1200px;
+        height: 100vh;
         width: 100%;
     }
     .mt-4{
@@ -84,7 +84,7 @@
 <body>
 <div class="background">
 <div class="container mt-4">
-    <a href="http://localhost:8080/Gradle___com_example___webzadacahamzaajdindise_1_0_SNAPSHOT_war/"><button class="dugme1"> &#8592 Go Back</button></a>
+    <a href=${pageContext.request.contextPath}/><button class="dugme1"> &#8592 Go Back</button></a>
     <h2 class="mb-3">Prijavite se</h2>
     <% String errorMessage = (String) request.getAttribute("errorMessage");
         if(errorMessage != null) { %>
@@ -94,16 +94,16 @@
     <% } %>
     <form action="${pageContext.request.contextPath}/login" method="post">
         <div class="form-group">
-            <label for="username">Naziv:</label>
+            <label for="username">Username:</label>
             <input type="text" class="form-control" id="username" name="username" required>
         </div>
         <div class="form-group">
-            <label for="password">Sifra:</label>
+            <label for="password">Password:</label>
             <input type="password" class="form-control" id="password" name="password" required>
         </div>
         <button type="submit" class="dugme2">Prijavite se</button>
     </form>
-    <p class="mt-3">Nemate profil? <a href="${pageContext.request.contextPath}/register">Registrujte se ovdje</a></p>
+
 </div>
 </div>
 <!-- Optional JavaScript -->

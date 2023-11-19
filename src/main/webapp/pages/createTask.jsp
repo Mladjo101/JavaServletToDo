@@ -24,8 +24,17 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
+        body{
+
+                background-image: url('../blank-clipboard-with-grocery-cart.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image file */
+                background-size: cover; /* Ensure the background image covers the entire viewport */
+                background-position: center; /* Center the background image */
+                background-repeat: no-repeat; /* Do not repeat the background image */
+
+        }
         .container {
             margin-top: 50px;
+            padding-top: 50px;
         }
 
         .form-container {
@@ -55,6 +64,7 @@
             <button type="submit" class="btn btn-primary">Create Task</button>
         </form>
     </div>
+
 </div>
 
 <!-- Bootstrap JS -->
